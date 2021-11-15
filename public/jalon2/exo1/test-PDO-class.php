@@ -1,6 +1,7 @@
 <?php
 	require_once("initPDO.php");
 	require_once("createUserTable.php");
+	require_once("Film-class.php");
 /*
 	$curl = curl_init();
  
@@ -22,7 +23,7 @@
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// User class
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	class User
+	class Api_To_Json
 	{
 		// added by PDO
 		// private $id;
@@ -51,16 +52,27 @@
 			return $allUsers;
 		}
 
+
 		// class-side method to render an array of users as an HTML table
 		public static function showUsersAsTable($users) {
+			$users_objects = static::convertToObject($users);
 			echo '<table><thead>
 					<tr><th>Id</th><th>Titre</th></tr></thead><tbody>';
-			foreach($users as $u) {
+			foreach($users_objects as $u) {
 				echo "<tr>"
-				. "<td>". $u["id"] . "</td>"
-				. "<td>". $u["title"] . "</td></tr>";
+				. "<td>". $u->id . "</td>"
+				. "<td>". $u->titre . "</td></tr>";
 			}
 			echo '</tbody></table>';
+		}
+
+		public static function convertToObject($users){
+			$all_users_objets = array();
+			foreach ($users as $u){
+				$userObject = new Film($u["id"],$u["title"]);
+				array_push($all_users_objets,$userObject);
+			}
+			return($all_users_objets);
 		}
 
 		public static function showAllUsersAsTable() {
@@ -91,7 +103,7 @@
 	<body>
 		<h1>Users</h1>
 		<?php
-			User::showAllUsersAsTable();
+			Api_To_Json::showAllUsersAsTable();
 		?>
 	</body>
 </html>

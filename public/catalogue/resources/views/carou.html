@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   </head>
 <body>
   
@@ -101,17 +101,18 @@
    })
 
    function next(){
-     items.forEach(item => {
-       if(item.classList.contains("active")){
-         item.classList.remove("active");
-         if(items.next){
-          items.next.classList.push("active");
+     for (i=0;i<items.length;i++) {
+       if(items[i].classList.contains("active")){
+         items[i].classList.remove("active");
+         if(items[i+1]){
+          items[i+1].classList.add("active");
          }
          else{
            items[0].classList.add("active");
          }
+         break;
        }
-      });
+      }
       items.forEach(item => {
         console.log(item.classList);
       });

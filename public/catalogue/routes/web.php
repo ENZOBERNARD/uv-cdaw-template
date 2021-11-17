@@ -24,3 +24,4 @@ Route::get('/{nom}/{prenom}', function ($nom,$prenom) {
 Route::get('/{title}', function () {
     return view('film');
 });
+Route::get('/', 'LoginController@login');

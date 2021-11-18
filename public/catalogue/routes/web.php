@@ -17,4 +17,4 @@ use App\Http\Controllers\CarrousselController;
 
 
 
-Route::get('/login/{nom}', 'App\Http\Controllers\CarrousselController@launch');
+Route::get('/film', 'App\Http\Controllers\FilmController@launch');

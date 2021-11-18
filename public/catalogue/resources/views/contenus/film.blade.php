@@ -1,10 +1,6 @@
-@template('template.balde.php')
+@extends('templates.template')
 
-@parent
-
-<!DOCTYPE html>
-<html lang="en">
-    <body>
+@section('content')
         <!-- Product section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -40,3 +36,5 @@
         <script src="../js/film.js"></script>
     </body>
 </html>
+
+@stop()

@@ -4,6 +4,6 @@
         
     </head>
     <body class="antialiased">
-    <h1>Bonjour <?php echo request('nom') ," ", request('prenom') ?></h1>
+    <h1>Bonjour <?php echo request('nom')?></h1>
     </body>
 </html>

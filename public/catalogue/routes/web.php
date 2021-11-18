@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarrousselController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/{nom}/{prenom}', function ($nom,$prenom) {
-    return view('name');
-});
 
-Route::get('/{title}', function () {
-    return view('film');
-});
-Route::get('/', 'LoginController@login');
+
+Route::get('/login/{nom}', 'App\Http\Controllers\CarrousselController@launch');

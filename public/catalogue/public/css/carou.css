@@ -1,6 +1,9 @@
 
 @charset "UTF-8";
 
+.title{
+  
+}
 
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {

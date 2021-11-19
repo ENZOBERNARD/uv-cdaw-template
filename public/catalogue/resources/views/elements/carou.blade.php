@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="../css/carou.css">
+  <link rel="stylesheet" href="<?php echo asset('css/carou.css')?>">
   </head>
 <body>
   
   <div class="container text-center my-3">
-    <h2 class="font-weight-light">Bootstrap Multi Slide Carousel</h2>
+      <p class=title>{{$title}}</p>
     <div class="row mx-auto my-auto justify-content-center">
         <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
+                <div class="carousel-item {{$title}} active">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item {{$title}}">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item {{$title}}">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item {{$title}}">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item {{$title}}">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item {{$title}}">
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-img">
@@ -72,27 +72,26 @@
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" onclick="next()" role="button" data-bs-slide="prev">
+            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" onclick="next{{$title}}()" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" onclick="next()" role="button" data-bs-slide="next">
+            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" onclick="next{{$title}}()" role="button" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>
     </div>
-    <h5 class="mt-2 fw-light">advances one slide at a time</h5>
 </div>
 <script>
-    let items = document.querySelectorAll('.carousel .carousel-item')
-   console.log(items);
-   items.forEach((el) => {
+    let {{$title}}item = document.querySelectorAll('.carousel .carousel-item.{{$title}}')
+   console.log({{$title}}item);
+   {{$title}}item.forEach((el) => {
        const minPerSlide = 4;
        console.log("hello");
        let next = el.nextElementSibling
        for (var i=1; i<minPerSlide; i++) {
            if (!next) {
                // wrap carousel by using first child
-               next = items[0]
+               next = {{$title}}item[0]
              }
            let cloneChild = next.cloneNode(true)
            el.appendChild(cloneChild.children[0])
@@ -100,20 +99,21 @@
        }
    })
 
-   function next(){
-     for (i=0;i<items.length;i++) {
-       if(items[i].classList.contains("active")){
-         items[i].classList.remove("active");
-         if(items[i+1]){
-          items[i+1].classList.add("active");
+   function next{{$title}}(){
+    console.log({{$title}}item);
+     for (i=0;i<{{$title}}item.length;i++) {
+       if({{$title}}item[i].classList.contains("active")){
+        {{$title}}item[i].classList.remove("active");
+         if({{$title}}item[i+1]){
+         {{$title}}item[i+1].classList.add("active");
          }
          else{
-           items[0].classList.add("active");
+          {{$title}}item[0].classList.add("active");
          }
          break;
        }
       }
-      items.forEach(item => {
+     {{$title}}item.forEach(item => {
         console.log(item.classList);
       });
    }

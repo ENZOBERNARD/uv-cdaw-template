@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 use Illuminate\Database\Seeder;
 
-class FilmSeeder extends Seeder
+class MediasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,6 @@ class FilmSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('medias_table')->insert([
-            ['Id'=> random_int(0,100),'Titre' => Str::random(10) , 'Description' =>  Str::random(10) , 'Date_de_sortie' =>  Str::random(10) ]
-           ]);
+        \App\Models\Medias::factory(10)->create();
     }
 }

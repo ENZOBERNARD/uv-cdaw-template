@@ -17,9 +17,14 @@ use App\Http\Controllers\FilmController;
 */
 
 
-Route::get('/film', 'App\Http\Controllers\FilmController@launch');
-
+Route::get('/film', 'App\Http\Controllers\FilmController@readAllFilm');
+Route::get('/film/{id}', 'App\Http\Controllers\FilmController@readFilmById');
+Route::post('/filmCreate', 'App\Http\Controllers\FilmController@createFilm');
+Route::post('/filmUpdate/{id}', 'App\Http\Controllers\FilmController@updateFilmById');
+Route::post('/filmDelete/{id}', 'App\Http\Controllers\FilmController@deleteFilmById');
 
 Route::get('/login', 'App\Http\Controllers\LoginController@login');
 
-Route::get('/', 'App\Http\Controllers\LoginController@login');
+Route::get('/jalon2c', 'App\Http\Controllers\FormCrudController@create');
+Route::get('/jalon2u', 'App\Http\Controllers\FormCrudController@update');
+Route::get('/jalon2d', 'App\Http\Controllers\FormCrudController@delete');

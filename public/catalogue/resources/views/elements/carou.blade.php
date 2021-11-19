@@ -13,7 +13,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item {{$title}} active">
                     <div class="col-md-3">
-                        <div class="card">
+                        <div class="card w-75 h-100">
                             <div class="card-img">
                                 <img src="//via.placeholder.com/500x400/31f?text=1" class="img-fluid">
                             </div>

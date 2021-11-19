@@ -18,7 +18,8 @@
               <h1>CRUD Film</h1>
     <div class="modal-body">
     <div class="d-flex flex-column text-center">
-        <form method="post" action="{{ route('flimUpdate') }}">
+        <form method="post" action="{{ url('/filmCreate') }}">
+            @csrf
           <div class="form-group">
               <label for="ID">ID</label>
               <input type="text" class="form-control" name="ID"/>

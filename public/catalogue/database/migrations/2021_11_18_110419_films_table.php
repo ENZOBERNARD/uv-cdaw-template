@@ -11,23 +11,5 @@ class FilmsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('medias_table', function (Blueprint $table) {
-            $table->id();
-            $table->string('Titre');
-            $table->string('Description');
-            $table->string('Date_de_sortie');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
+    
 }

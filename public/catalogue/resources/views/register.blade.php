@@ -26,18 +26,18 @@
                 <h4>Création de compte</h4>
               </div>
               <div class="d-flex flex-column text-center">
-                <form>
+                <form >
                   <div class="form-group">
-                    <input type="email" class="form-control" id="pseudo"placeholder="Pseudo ...">
+                    <input type="text" class="form-control" id="pseudo"placeholder="Pseudo ...">
                   </div>
                   <div class="form-group">
                     <input type="email" class="form-control" id="email"placeholder="email ...">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" id="password1" placeholder="mot de passe ...">
+                    <input type="password" class="form-control" id="password" placeholder="mot de passe ...">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" id="password2" placeholder="confirmation mot de passe ...">
+                    <input type="password" class="form-control" id="password1" placeholder="confirmation mot de passe ...">
                   </div>
                   <button type="button" class="btn btn-info btn-block btn-round">Inscription</button>
                 </form>

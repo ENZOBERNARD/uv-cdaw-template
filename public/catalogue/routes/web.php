@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarrousselController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,11 @@ use App\Http\Controllers\CarrousselController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'App\Http\Controllers\AccueilController@launch');
-
 
 
 Route::get('/film', 'App\Http\Controllers\FilmController@launch');
+
+
+Route::get('/login', 'App\Http\Controllers\LoginController@login');
+
+Route::get('/', 'App\Http\Controllers\LoginController@login');

@@ -19,17 +19,17 @@ class FilmController extends Controller
 
     public function createFilm(Request $request) {
         $item = Medias::create($request->all());
-        return view('contenus.film');
+        return 'Film créé avec succès!';
     }
 
     public function updateFilmById(Request $request,$id) {
         $data = request()->except(['_token']);
         Medias::where('ID', '=', $id)->update($data);
 
-        return view('contenus.film');
+        return 'Film modifié avec succès!';
     }
     public function deleteFilmById($id) {
         Medias::where('ID', '=', $id)->delete();
-        return view('contenus.film');
+        return 'Film supprimé avec succès!';
     }
 }

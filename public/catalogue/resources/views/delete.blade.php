@@ -18,55 +18,57 @@
               <h1>CRUD Film</h1>
     <div class="modal-body">
     <div class="d-flex flex-column text-center">
-        <form method="post" action="{{ url('/filmDelete/5') }}">
+    <form method="post" action="{{ url('/filmDelete') }}/<?php echo $film[0]["ID"]; ?>">
             @csrf
+            
           <div class="form-group">
               <label for="ID">ID</label>
-              <input type="text" class="form-control" name="ID"/>
+              <input type="text" class="form-control" name="ID" value='{{$film[0]["ID"]}}'readonly/>
           </div>
           <div class="form-group">
               <label for="TITRE">TITRE</label>
-              <input type="text" class="form-control" name="TITRE"/>
+              <input type="text" class="form-control" name="TITRE" value='{{$film[0]["TITRE"]}}'/>
           </div>
           <div class="form-group">
               <label for="DESCRIPTION">DESCRIPTION</label>
-              <input type="text" class="form-control" name="DESCRIPTION"/>
+              <input type="text" class="form-control" name="DESCRIPTION" value='{{$film[0]["DESCRIPTION"]}}'/>
           </div>
 
           <div class="form-group">
               <label for="DATE_DE_SORTIE">DATE_DE_SORTIE</label>
-              <input type="text" class="form-control" name="DATE_DE_SORTIE"/>
+              <input type="text" class="form-control" name="DATE_DE_SORTIE" value='{{$film[0]["DATE_DE_SORTIE"]}}'/>
           </div>
           <div class="form-group">
               <label for="DUREE">DUREE</label>
-              <input type="text" class="form-control" name="DUREE"/>
+              <input type="text" class="form-control" name="DUREE" value='{{$film[0]["DUREE"]}}'/>
           </div>
           <div class="form-group">
               <label for="ACTEURS">ACTEURS</label>
-              <input type="text" class="form-control" name="ACTEURS"/>
+              <input type="text" class="form-control" name="ACTEURS" value='{{$film[0]["ACTEURS"]}}'/>
           </div>
           <div class="form-group">
               <label for="REALISATEUR">REALISATEUR</label>
-              <input type="text" class="form-control" name="REALISATEUR"/>
+              <input type="text" class="form-control" name="REALISATEUR" value='{{$film[0]["REALISATEUR"]}}'/>
           </div>
           <div class="form-group">
               <label for="PAYS">PAYS</label>
-              <input type="text" class="form-control" name="PAYS"/>
+              <input type="text" class="form-control" name="PAYS" value='{{$film[0]["PAYS"]}}'/>
           </div>
           <div class="form-group">
               <label for="AFFICHE">AFFICHE</label>
-              <input type="text" class="form-control" name="AFFICHE"/>
+              <input type="text" class="form-control" name="AFFICHE" value='{{$film[0]["AFFICHE"]}}'/>
           </div>
           <div class="form-group">
               <label for="NOTE">NOTE</label>
-              <input type="text" class="form-control" name="NOTE"/>
+              <input type="text" class="form-control" name="NOTE" value='{{$film[0]["NOTE"]}}'/>
           </div>
           <div class="form-group">
               <label for="NOMBRE_EPISODE">NOMBRE_EPISODE</label>
-              <input type="text" class="form-control" name="NOMBRE_EPISODE"/>
+              <input type="text" class="form-control" name="NOMBRE_EPISODE" value='{{$film[0]["NOMBRE_EPISODE"]}}'/>
           </div>
-          <button type="submit" class="btn btn-primary">Ajouter</button>
+          <button type="submit" class="btn btn-primary">Supprimer</button>
       </form>
+        
       </div>
       </div>
       </div>

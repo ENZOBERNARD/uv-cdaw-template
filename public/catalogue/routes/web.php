@@ -25,6 +25,7 @@ Route::post('/filmDelete/{id}', 'App\Http\Controllers\FilmController@deleteFilmB
 
 Route::get('/login', 'App\Http\Controllers\LoginController@login');
 
-Route::get('/jalon2c', 'App\Http\Controllers\FormCrudController@create');
-Route::get('/jalon2u', 'App\Http\Controllers\FormCrudController@update');
-Route::get('/jalon2d', 'App\Http\Controllers\FormCrudController@delete');
+Route::get('/jalon2show', 'App\Http\Controllers\FormCrudController@show');
+Route::get('/jalon2create', 'App\Http\Controllers\FormCrudController@create');
+Route::get('/jalon2update/{id}', 'App\Http\Controllers\FormCrudController@update');
+Route::get('/jalon2delete/{id}', 'App\Http\Controllers\FormCrudController@delete');

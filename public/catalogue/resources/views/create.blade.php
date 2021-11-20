@@ -22,7 +22,7 @@
             @csrf
           <div class="form-group">
               <label for="ID">ID</label>
-              <input type="text" class="form-control" name="ID"/>
+              <input type="text" class="form-control" name="ID" readonly/>
           </div>
           <div class="form-group">
               <label for="TITRE">TITRE</label>

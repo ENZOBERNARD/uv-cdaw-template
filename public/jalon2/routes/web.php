@@ -39,3 +39,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('/carou', 'App\Http\Controllers\CarrousselController@launch');
+Route::get('/home', 'App\Http\Controllers\HomeController@home');
+

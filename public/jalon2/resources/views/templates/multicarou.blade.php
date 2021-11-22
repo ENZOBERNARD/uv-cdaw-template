@@ -1,4 +1,3 @@
-@include('elements.header')
 @php
 $titles=['recommande','favoris','top']
 @endphp

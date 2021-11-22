@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class CarrousselController extends Controller
 {
     public function launch() {
-        return view('templates.multicarou');
+        return view('contenus.film');
     }
 }

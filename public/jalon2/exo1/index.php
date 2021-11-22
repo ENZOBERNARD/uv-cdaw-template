@@ -89,7 +89,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>Users</h1>
+		<h1>Films</h1>
 		<?php
 			User::showAllUsersAsTable();
 		?>

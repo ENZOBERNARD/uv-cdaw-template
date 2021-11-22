@@ -23,9 +23,12 @@ Route::post('/filmCreate', 'App\Http\Controllers\FilmController@createFilm');
 Route::post('/filmUpdate/{id}', 'App\Http\Controllers\FilmController@updateFilmById');
 Route::post('/filmDelete/{id}', 'App\Http\Controllers\FilmController@deleteFilmById');
 
-Route::get('/login', 'App\Http\Controllers\LoginController@login');
+Route::get('/', 'App\Http\Controllers\LoginController@login');
 
 Route::get('/jalon2show', 'App\Http\Controllers\FormCrudController@show');
 Route::get('/jalon2create', 'App\Http\Controllers\FormCrudController@create');
 Route::get('/jalon2update/{id}', 'App\Http\Controllers\FormCrudController@update');
 Route::get('/jalon2delete/{id}', 'App\Http\Controllers\FormCrudController@delete');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

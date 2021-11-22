@@ -29,3 +29,10 @@ Route::get('/jalon2show', 'App\Http\Controllers\FormCrudController@show');
 Route::get('/jalon2create', 'App\Http\Controllers\FormCrudController@create');
 Route::get('/jalon2update/{id}', 'App\Http\Controllers\FormCrudController@update');
 Route::get('/jalon2delete/{id}', 'App\Http\Controllers\FormCrudController@delete');
+
+Route::get('comptes', function() {
+    // Réservé aux utilisateurs authentifiés
+})->middleware('auth');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

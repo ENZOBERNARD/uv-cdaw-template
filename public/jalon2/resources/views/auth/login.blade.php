@@ -1,18 +1,11 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../resources/css/navbar.css" rel="stylesheet" />
+    <!--<link href="../public/css/navbar.css" rel="stylesheet" /> -->
 
         <!-- Bootstrap CSS -->
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
@@ -20,17 +13,19 @@
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
 </head>
 <body>
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal show" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header border-bottom-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
             <div class="modal-body">
               <div class="form-title text-center">
-                <h4>Se connecter</h4>
+                <h4>Se connecter à IMTFlix</h4>
+                <br>
+                <br>
               </div>
               <div class="d-flex flex-column text-center">
 
@@ -49,26 +44,21 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Se souvenir de moi') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
 
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
+                <x-jet-button class="ml-4" style="background-color:darkgrey !important">
+                    {{ __('Connexion') }}
                 </x-jet-button>
             </div>
         </form>
@@ -92,8 +82,13 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
         });
+    $(body).onclick(function() {                         
+        $('#loginModal').modal('show');
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        });
+    
 </script>
 </body>
 </html>
-    </x-jet-authentication-card>
-</x-guest-layout>

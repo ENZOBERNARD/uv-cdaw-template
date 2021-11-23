@@ -1,11 +1,4 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +23,9 @@
             </div>
             <div class="modal-body">
               <div class="form-title text-center">
-                <h4>Création de compte</h4>
+                <h4>Création de compte à IMTFlix</h4>
+                <br>
+                <br>
               </div>
               <div class="d-flex flex-column text-center">
 
@@ -38,7 +33,7 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('Pseudo') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
@@ -48,12 +43,12 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-label for="password_confirmation" value="{{ __('Confirmation Mot de passe') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -75,12 +70,9 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                
+                <x-jet-button class="ml-4" style="background-color:darkgrey">
+                    {{ __('Inscription') }}
                 </x-jet-button>
             </div>
         </form>
@@ -108,5 +100,4 @@
 </script>
 </body>
 </html>
-    </x-jet-authentication-card>
-</x-guest-layout>
+

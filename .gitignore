@@ -1,1 +1,4 @@
  .devcontainer/php/apache2/logs/**
+public/jalon2/composer.lock
+public/jalon2/composer.json
+.devcontainer/php/apache2/logs/error.log

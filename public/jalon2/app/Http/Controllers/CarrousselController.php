@@ -9,4 +9,8 @@ class CarrousselController extends Controller
     public function launch() {
         return view('contenus.film');
     }
+
+    public function launch2() {
+        return view('templates.multicarou');
+    }
 }

@@ -2,16 +2,19 @@
 
 @section('content')
         <!-- Product section-->
+        <link rel="stylesheet" href="<?php echo asset('css/film.css')?>">
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="assets/avatar.jpg" alt="..." height="600px" width="700px" /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{URL::asset($film->AFFICHE)}}" alt="..." height="600px" width="700px" /></div>
                     <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder">Avatar</h1>
-                        <h2>145min - Action Science-Fiction</h2>
-                        <p class="lead">Avatar nous emmène dans le monde de Pandora, où un homme se lance dans une épopée rythmée par l’aventure et l’amour et se bat pour sauver le seul endroit qu’il considère comme sa maison.</p>
-                        <p> De :James Cameron</p>
-                        <p>Avec :Sam Worthington, Zoë Saldana, Sigourney Weaver, Stephen Lang, Michelle Rodriguez, Giovanni Ribisi</p>
+                        <h1 class="display-5 fw-bolder">{{$film->TITRE}}</h1>
+                        <h2>{{$film->DUREE}}min - Action Science-Fiction</h2>
+                        <p class="lead">{{$film->DESCRIPTION}}</p>
+                        <p> De :{{$film->REALISATEUR}}</p>
+                        <p>Avec : {{$film->ACTEURS}}</p>
+                        <p>Date de sortie : {{$film->DATE_DE_SORTIE}}</p>
+                        <p>Date de sortie : {{$film->AFFICHE}}</p>
                         <div class="d-flex">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi bi-eye"></i>

@@ -75,7 +75,7 @@
         </div>
           </div>
             <div class="modal-footer d-flex justify-content-center">
-              <div class="signup-section">Vous n'êtes pas inscrit ? <a href="../views/register.blade.php" class="text-info"> Inscrivez-vous!</a>.</div>
+              <div class="signup-section">Vous n'êtes pas inscrit ? <a href="{{ route('register') }}" class="text-info"> Inscrivez-vous!</a>.</div>
             </div>
         </div>
       </div>

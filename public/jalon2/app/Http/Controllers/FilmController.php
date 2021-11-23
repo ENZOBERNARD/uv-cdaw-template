@@ -32,4 +32,10 @@ class FilmController extends Controller
         Medias::where('ID', '=', $id)->delete();
         return 'Film supprimé avec succès!';
     }
+
+    public function afficherFilm($id){
+        $film = $this->readFilmById($id);
+        return view('contenus.film',['film' => $film[0]]);
+        //return $film;
+    }
 }

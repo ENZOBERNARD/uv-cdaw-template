@@ -45,3 +45,5 @@ Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 
+Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
+

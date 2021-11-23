@@ -17,7 +17,7 @@ use App\Http\Controllers\FilmController;
 */
 
 
-Route::get('/film', 'App\Http\Controllers\FilmController@readAllFilm');
+Route::get('/film', 'App\Http\Controllers\CarrousselController@launch');
 Route::get('/film/{id}', 'App\Http\Controllers\FilmController@readFilmById');
 Route::post('/filmCreate', 'App\Http\Controllers\FilmController@createFilm');
 Route::post('/filmUpdate/{id}', 'App\Http\Controllers\FilmController@updateFilmById');

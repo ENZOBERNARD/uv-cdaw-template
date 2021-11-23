@@ -38,6 +38,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('/carou', 'App\Http\Controllers\CarrousselController@launch');
+Route::get('/poubelle', 'App\Http\Controllers\CarrousselController@launch');
+
+Route::get('/carou', 'App\Http\Controllers\CarrousselController@launch2');
 Route::get('/home', 'App\Http\Controllers\HomeController@home');
+
+Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 

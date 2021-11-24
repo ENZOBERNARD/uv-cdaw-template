@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GenreTable extends Migration
+class CreateGenreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class GenreTable extends Migration
     {
         Schema::create('GENRE', function (Blueprint $table) {
             $table->increments('ID');
-            $table->increments('NOM');
+            $table->string('NOM',30);
             $table->timestamps();
         });
     }

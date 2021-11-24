@@ -14,9 +14,10 @@ class CreateVoirTable extends Migration
     public function up()
     {
         Schema::create('VOIR', function (Blueprint $table) {
-            $table->unsignedBigInteger('PSEUDO');
-            $table->unsignedBigInteger('ID_MEDIA');
-            $table->primary(['ID_MEDIA','PSEUDO']);
+            $table->integer('ID_MEDIA')->unsigned();
+            $table->foreign('ID_MEDIA')->references('ID')->on('MEDIA_TABLE');
+            $table->foreignId('ID_USERS')->constrained('users');
+            $table->primary(['ID_MEDIA','ID_USERS']);
             $table->date('DATE');
             $table->timestamps();
         });

@@ -14,9 +14,11 @@ class CreateavoirgenreTable extends Migration
     public function up()
     {
         Schema::create('AVOIR_GENRE', function (Blueprint $table) {
-            $table->unsignedBigInteger('NOM');
-            $table->unsignedBigInteger('ID_MEDIA');
-            $table->primary(['ID_MEDIA','NOM']);
+            $table->integer('ID_MEDIA')->unsigned();
+            $table->foreign('ID_MEDIA')->references('ID')->on('MEDIA_TABLE');
+            $table->integer('ID_GENRE')->unsigned();
+            $table->foreign('ID_GENRE')->references('ID')->on('GENRE');
+            $table->primary(['ID_MEDIA','ID_GENRE']);
             $table->timestamps();
         });
     }

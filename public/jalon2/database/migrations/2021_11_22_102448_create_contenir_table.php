@@ -14,8 +14,10 @@ class CreateContenirTable extends Migration
     public function up()
     {
         Schema::create('CONTENIR', function (Blueprint $table) {
-            $table->unsignedBigInteger('ID_PLAYLIST');
-            $table->unsignedBigInteger('ID_MEDIA');
+            $table->integer('ID_PLAYLIST')->unsigned();
+            $table->integer('ID_MEDIA')->unsigned();
+            $table->foreign('ID_MEDIA')->references('ID')->on('MEDIA_TABLE');
+            $table->foreign('ID_PLAYLIST')->references('ID')->on('PLAYLIST');
             $table->primary(['ID_MEDIA','ID_PLAYLIST']);
             $table->timestamps();
         });

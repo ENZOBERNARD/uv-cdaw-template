@@ -47,3 +47,4 @@ Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 
 Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
+Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');

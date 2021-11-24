@@ -38,4 +38,8 @@ class FilmController extends Controller
         return view('contenus.film',['film' => $film[0]]);
         //return $film;
     }
+
+    public function afficherAllFilm(){
+        return view('contenus.listeFilm');
+    }
 }

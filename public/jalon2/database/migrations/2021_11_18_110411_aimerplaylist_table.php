@@ -16,8 +16,9 @@ class AimerPlaylistTable extends Migration
     public function up()
     {
         Schema::create('AIMER_PLAYLIST', function (Blueprint $table) {
-            $table->integer('PSEUDO')->primary();
-            $table->integer('ID_PLAYLIST')->primary();
+            $table->unsignedBigInteger('PSEUDO');
+            $table->unsignedBigInteger('ID_PLAYLIST');
+            $table->primary(['ID_PLAYLIST','PSEUDO']);
             $table->timestamps();
         });
     }

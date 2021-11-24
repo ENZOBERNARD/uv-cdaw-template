@@ -14,8 +14,9 @@ class CommentaireTable extends Migration
     public function up()
     {
         Schema::create('COMMENTAIRE', function (Blueprint $table) {
-            $table->integer('PSEUDO')->primary();
-            $table->integer('ID_MEDIA')->primary();
+            $table->unsignedBigInteger('PSEUDO');
+            $table->unsignedBigInteger('ID_MEDIA');
+            $table->primary(['ID_MEDIA','PSEUDO']);
             $table->string('CONTENU',650);
             $table->string('TITRE',60);
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GenreTable extends Migration
+class CreateContenirTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class GenreTable extends Migration
      */
     public function up()
     {
-        Schema::create('GENRE', function (Blueprint $table) {
-            $table->integer('PSEUDO');
-            $table->integer('ID_MEDIA');
-            $table->string('CONTENU',650);
-            $table->string('TITRE',60);
+        Schema::create('CONTENIR', function (Blueprint $table) {
+            $table->unsignedBigInteger('ID_PLAYLIST');
+            $table->unsignedBigInteger('ID_MEDIA');
+            $table->primary(['ID_MEDIA','ID_PLAYLIST']);
             $table->timestamps();
         });
     }
@@ -29,7 +28,6 @@ class GenreTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('medias_table');
+        Schema::dropIfExists('PLAYLIST');
     }
 }

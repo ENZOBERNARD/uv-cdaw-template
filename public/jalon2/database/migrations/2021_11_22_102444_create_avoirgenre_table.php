@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AvoirgenreTable extends Migration
+class CreateavoirgenreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AvoirgenreTable extends Migration
     public function up()
     {
         Schema::create('AVOIR_GENRE', function (Blueprint $table) {
-            $table->integer('ID_MEDIA')->primary();
-            $table->string('NOM',30)->primary();
+            $table->unsignedBigInteger('NOM');
+            $table->unsignedBigInteger('ID_MEDIA');
             $table->primary(['ID_MEDIA','NOM']);
             $table->timestamps();
         });

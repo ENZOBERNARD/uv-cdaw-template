@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class VoirTable extends Migration
+class CreateVoirTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,10 @@ class VoirTable extends Migration
     public function up()
     {
         Schema::create('VOIR', function (Blueprint $table) {
-            $table->string('PSEUDO');
-            $table->integer('ID_MEDIA');
+            $table->unsignedBigInteger('PSEUDO');
+            $table->unsignedBigInteger('ID_MEDIA');
+            $table->primary(['ID_MEDIA','PSEUDO']);
+            $table->date('DATE');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AimerMediaTable extends Migration
+class CreateAimerMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class AimerMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('PLAYLIST', function (Blueprint $table) {
-            $table->increments('ID');
-            $table->string('TITRE',50)->nullable()->index();
-            $table->string('VIGNETTE',150);
-            $table->string('DESCRPTION',1000)->nullable();
-            $table->boolean('OPTION');
-            $table->string('PSEUDO');
+        Schema::create('AIMER_MEDIA', function (Blueprint $table) {
+            $table->unsignedBigInteger('PSEUDO');
+            $table->unsignedBigInteger('ID_MEDIA');
+            $table->primary(['ID_MEDIA','PSEUDO']);
             $table->timestamps();
         });
     }

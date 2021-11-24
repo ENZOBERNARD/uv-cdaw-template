@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../resources/css/navbar.css" rel="stylesheet" />
+     <!-- <link href="../resources/css/navbar.css" rel="stylesheet" /> -->
 
         <!-- Bootstrap CSS -->
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
@@ -80,7 +80,7 @@
         </div>
           </div>
             <div class="modal-footer d-flex justify-content-center">
-              <div class="signup-section">Vous avez déjà un compte ? <a href="{{ route('login') }}" class="text-info"> Se connecter!</a>.</div>
+              <div class="signup-section">Vous avez déjà un compte ? <a href="{{ route('login') }}" class="text-info"> Se connecter!</a></div>
             </div>
         </div>
       </div>

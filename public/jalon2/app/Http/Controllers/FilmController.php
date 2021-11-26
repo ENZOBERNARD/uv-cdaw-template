@@ -40,6 +40,10 @@ class FilmController extends Controller
     }
 
     public function afficherAllFilm(){
-        return view('contenus.listeFilm');
+        $films = Medias::all();
+        return view('contenus.listeFilm',['films'=>$films]);
+        //return $films[0] ;
     }
 }
+
+

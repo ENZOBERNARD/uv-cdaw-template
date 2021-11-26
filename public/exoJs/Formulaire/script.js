@@ -5,6 +5,9 @@ function modify(e)
     let comment=e.currentTarget.parentNode.childNodes[3].innerHTML;
     let form = document.getElementById("comment_form");
     form.value=comment;
+
+    document.forms["myForm"].addEventListener("submit", myVerif(e,VarId));
+
     //alert(e.type +" on modify for "+ e.currentTarget.parentNode.id+" !");
     //e.currentTarget.parentNode.childNodes[3].innerHTML= "cest modifié";
 }
@@ -42,4 +45,4 @@ function myVerif(e)
         user.childNodes[3].innerHTML=valToCheck;
     }
 }
-document.forms["myForm"].addEventListener("submit", myVerif);
+//document.forms["myForm"].addEventListener("submit", myVerif);

@@ -33,6 +33,11 @@
             @csrf
 
             <div>
+                <x-jet-label for="profile_photo_url" value="{{ __('Photo') }}" />
+                <x-jet-input id="profile_photo_url" class="block mt-1 w-full" type="img" name="name" :value="old('profile_photo_url')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
                 <x-jet-label for="name" value="{{ __('Pseudo') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>

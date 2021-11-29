@@ -2,7 +2,6 @@
 
 @section('content')
         <!-- Product section-->
-        <link rel="stylesheet" href="<?php echo asset('css/film.css')?>">
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -14,7 +13,7 @@
                         <p> De :{{$film->REALISATEUR}}</p>
                         <p>Avec : {{$film->ACTEURS}}</p>
                         <p>Date de sortie : {{$film->DATE_DE_SORTIE}}</p>
-                        <p>Date de sortie : {{$film->AFFICHE}}</p>
+                        <p>{{ Auth::user()->name }}</p>
                         <div class="d-flex">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi bi-eye"></i>
@@ -36,7 +35,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="../js/film.js"></script>
+        
     </body>
 </html>
 

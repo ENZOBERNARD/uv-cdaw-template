@@ -360,7 +360,6 @@
         float: right;
         margin: 5px 0 5px 5px;
         max-width: calc(100% - 5px); }
-  /*end-commonstyles library*//*begin-commonstyles library*/@charset "UTF-8";
   
   /*!
    * animate.css -https://daneden.github.io/animate.css/
@@ -8953,6 +8952,7 @@
     position: relative;
     width: 1140px;
     margin: 0 auto;
+    margin-left:5%;
   }
   @media (min-width: 1200px) {
     .u-sheet {

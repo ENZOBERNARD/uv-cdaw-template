@@ -1,7 +1,6 @@
 @extends('templates.template')
 @php
 $lenght = count($films);
-echo $films[0]->TITRE
 @endphp
 
 @section('content')
@@ -16,7 +15,7 @@ echo $films[0]->TITRE
             @endif
 
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
-                <img class="u-expanded-width u-image u-image-default u-image-1" src="assets/avatar.jpg" alt=""
+                <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i]->AFFICHE)}}" alt=""
                     data-image-width="1280" data-image-height="853" width="150" height="250">
                 <p class="u-align-center u-text u-text-1"> {{$films[$i]->TITRE}}</p>
                 <div class="u-expanded-width u-list u-list-1">

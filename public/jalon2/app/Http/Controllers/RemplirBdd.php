@@ -24,8 +24,11 @@ class RemplirBdd extends Controller
         $response = curl_exec($curl);
         curl_close($curl);
         $allMedia = json_decode($response,true)["items"];
+        $index = 0;
+
 
         foreach($allMedia as $m){
+            if($index < 50){
             $media = new Medias;
             $media->TITRE = $m["title"];
             $media->DESCRIPTION = ' ';
@@ -33,9 +36,10 @@ class RemplirBdd extends Controller
             $media->ACTEURS = $m['crew'];
             $media->REALISATEUR = $m['crew'];
             $media->PAYS = 'France';
-            $media->AFFICHE = 'assets/avatar.jpg';
+            $media->AFFICHE = $m['image'];
             $media->NOTE = $m['imDbRating'];
             $media->save();
+            }
 
         }
         return 'Bdd Remplie';

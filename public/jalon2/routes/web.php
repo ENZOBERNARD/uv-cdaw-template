@@ -48,3 +48,6 @@ Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
 Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');
+
+Route::post('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaController@createLike');
+

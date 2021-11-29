@@ -14,13 +14,15 @@
                         <p> De :{{$film->REALISATEUR}}</p>
                         <p>Avec : {{$film->ACTEURS}}</p>
                         <p>Date de sortie : {{$film->DATE_DE_SORTIE}}</p>
-                        <p>{{ Auth::user()->name }}</p>
+                        <p>{{Auth::user()->name}}</p>
                         <div class="d-flex">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi bi-eye"></i>
                                 Vue
                             </button>
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <form method="post" action="{{ url('/likeCreate')}}/{{Auth::user()->id}}/{{$film->ID}}">
+                            @csrf
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="likeBouton">
                                 <i class="bi bi-heart"></i>
                                 J'aime
                             </button>
@@ -36,7 +38,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        
+        <script src="{{ URL::asset('js/film.js') }}"></script>
     </body>
 </html>
 

@@ -73,11 +73,5 @@ $lenght = count($films);
 
 
 </section>
-<script>
-
-
-
-
-</script>
 
 @stop()

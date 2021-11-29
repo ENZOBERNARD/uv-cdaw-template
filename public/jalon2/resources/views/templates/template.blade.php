@@ -25,11 +25,16 @@
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
 
 <link rel="stylesheet" href="<?php echo asset('css/film.css')?>">
+<link rel="stylesheet" href="css/listefilm.css" media="screen">
+<link rel="stylesheet" href="css/listefilm2.css" media="screen">
         
-        <<script src="{{ asset('js/film.js')}}"></script>
+        <script src="../public/js/film.js'"></script>
     </head>
-@include('elements.header')
-
+    @if (Auth::check())
+    @include('navigation-menu')
+    @else
+    @include('elements.header')
+    @endif
 <div>
     @yield('content')
 </div>

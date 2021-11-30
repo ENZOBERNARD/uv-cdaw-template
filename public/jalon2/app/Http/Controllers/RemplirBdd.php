@@ -11,7 +11,7 @@ class RemplirBdd extends Controller
     public function RemplirMaBaseDeFilm(){
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://imdb-api.com/en/API/Top250Movies/k_u9lnuo3a",
+        CURLOPT_URL => "https://imdb-api.com/en/API/Top250Movies/k_3iooo844",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -28,20 +28,37 @@ class RemplirBdd extends Controller
 
 
         foreach($allMedia as $m){
-            if($index < 50){
+            if($index < 30){
+            $id = $m["id"];
+            $curl2 = curl_init();
+            curl_setopt_array($curl2, array(
+            CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_3iooo844/". $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            ));
+            $filmInfoJson = curl_exec($curl2);
+            curl_close($curl2);
+            $filmInfo = json_decode($filmInfoJson,true);
             $media = new Medias;
             $media->TITRE = $m["title"];
-            $media->DESCRIPTION = ' ';
-            $media->DATE_DE_SORTIE = '1999-12-15';
-            $media->ACTEURS = $m['crew'];
-            $media->REALISATEUR = $m['crew'];
-            $media->PAYS = 'France';
+            $media->DESCRIPTION = $filmInfo['plot'];
+            $media->DATE_DE_SORTIE = $filmInfo['releaseDate'];
+            $media->ACTEURS = $filmInfo['stars'];
+            $media->REALISATEUR = $filmInfo['directors'];
+            $media->DUREE = $filmInfo['runtimeMins'];
+            $media->PAYS = $filmInfo['countries'];
             $media->AFFICHE = $m['image'];
             $media->NOTE = $m['imDbRating'];
             $media->save();
+            $index = $index + 1;
             }
 
         }
-        return 'Bdd Remplie';
+        return $filmInfo;
     }
 }

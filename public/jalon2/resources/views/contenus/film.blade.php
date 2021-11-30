@@ -13,7 +13,6 @@
                         <p> De :{{$film->REALISATEUR}}</p>
                         <p>Avec : {{$film->ACTEURS}}</p>
                         <p>Date de sortie : {{$film->DATE_DE_SORTIE}}</p>
-                        <p>{{Auth::user()->name}}</p>
                         <div class="d-flex">
                             <button class="btn btn-outline-dark flex-shrink-0" type="button" id="vueBouton">
                                 <i class="bi bi-eye"></i>

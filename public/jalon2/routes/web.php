@@ -53,3 +53,5 @@ Route::get('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaControll
 
 Route::get('/voirCreate/{user}/{media}','App\Http\Controllers\VoirController@createVoir');
 
+Route::get('/historique','App\Http\Controllers\HistoriqueController@historique');
+

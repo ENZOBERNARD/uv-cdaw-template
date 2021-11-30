@@ -2,7 +2,6 @@
 
 @section('content')
         <!-- Product section-->
-        
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
@@ -20,11 +19,10 @@
                                 <i class="bi bi-eye"></i>
                                 Vue
                             </button>
-                            <form method="post" action="{{ url('/likeCreate')}}/{{Auth::user()->id}}/{{$film->ID}}">
-                            @csrf
-                            <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="likeBouton">
+                            <button class="btn btn-outline-dark flex-shrink-0" id="likeBouton">
                                 <i class="bi bi-heart"></i>
                                 J'aime
+                                @csrf
                             </button>
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
                                 <i class="bi bi-plus-lg"></i>
@@ -38,6 +36,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="{{ URL::asset('js/film.js') }}"></script>
     </body>
 </html>

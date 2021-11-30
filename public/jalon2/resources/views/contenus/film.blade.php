@@ -15,7 +15,7 @@
                         <p>Date de sortie : {{$film->DATE_DE_SORTIE}}</p>
                         <p>{{Auth::user()->name}}</p>
                         <div class="d-flex">
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="vueBouton">
                                 <i class="bi bi-eye"></i>
                                 Vue
                             </button>
@@ -43,45 +43,33 @@
             var media = {{$film->ID}};
 
             likeBouton = document.getElementById('likeBouton');
+            vueBouton = document.getElementById('vueBouton');
 
-function getCookie(name) {
-  if (!document.cookie) {
-    return null;
-  }
-
-  const xsrfCookies = document.cookie.split(';')
-    .map(c => c.trim())
-    .filter(c => c.startsWith(name + '='));
-
-  if (xsrfCookies.length === 0) {
-    return null;
-  }
-  return decodeURIComponent(xsrfCookies[0].split('=')[1]);
-}
-
-const csrfToken = getCookie('CSRF-TOKEN');
-
-const headers = new Headers({
-  'Content-Type': 'x-www-form-urlencoded',
-  'X-CSRF-TOKEN': '{{csrf_token()}}'
-});
-
-var myInit = {
-  method: 'POST',
-  headers: headers,
-  mode: 'cors',
-  cache: 'default'
-};
-
-
-console.log("http://localhost:8080/jalon2/public/likeCreate/'{{Auth::user()->name}}'/'{{$film->ID}}'");
 likeBouton.addEventListener("click", function (e) {
   console.log(media + " " + user);
-  if ({{Auth::user()->name}}){
+  if ({{Auth::user()->id}}){
   let request = $.ajax({
-    type: "POST",
+    type: "GET",
     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
     url: "http://localhost:8080/jalon2/public/likeCreate/"+user+"/"+media,
+    success: function (msg) {
+      
+    },
+    error: function (resultat, statut, erreur) {
+      // e.preventDefault();
+      // alert('Un problème est survenu lors de la récupération des informations');
+    }
+  });
+}
+});
+
+vueBouton.addEventListener("click", function (e) {
+  console.log(media + " " + user);
+  if ({{Auth::user()->id}}){
+  let request = $.ajax({
+    type: "GET",
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    url: "http://localhost:8080/jalon2/public/voirCreate/"+user+"/"+media,
     success: function (msg) {
       
     },

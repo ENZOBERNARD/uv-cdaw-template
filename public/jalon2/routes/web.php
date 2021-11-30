@@ -49,5 +49,7 @@ Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
 Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');
 
-Route::post('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaController@createLike');
+Route::get('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaController@createLike');
+
+Route::get('/voirCreate/{user}/{media}','App\Http\Controllers\VoirController@createVoir');
 

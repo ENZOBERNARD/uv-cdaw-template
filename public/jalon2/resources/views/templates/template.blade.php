@@ -24,8 +24,11 @@
 <!-- Font Awesome CSS -->
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
     </head>
-@include('elements.header')
-
+    @if (Auth::check())
+    @include('navigation-menu')
+    @else
+    @include('elements.header')
+    @endif
 <div>
     @yield('content')
 </div>

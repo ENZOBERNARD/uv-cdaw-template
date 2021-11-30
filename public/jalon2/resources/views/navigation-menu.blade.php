@@ -24,7 +24,7 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <div style="height:150px" style="background-color:darkgrey!important;">
+        <div style="height:150px; background-color:black !important;">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"  >
             <div class="container px-4 px-lg-5" >
                 <a class="navbar-brand" href="#page-top">IMTFlix</a>
@@ -81,7 +81,7 @@
 
 
 
-<div class="font-medium text-base text-gray-800">Bienvenue {{ Auth::user()->name }}</div>
+
 
        
         </section>

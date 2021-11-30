@@ -38,6 +38,61 @@
         <!-- Core theme JS-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="{{ URL::asset('js/film.js') }}"></script>
+        <script>
+            var user = {{Auth::user()->id}};
+            var media = {{$film->ID}};
+
+            likeBouton = document.getElementById('likeBouton');
+
+function getCookie(name) {
+  if (!document.cookie) {
+    return null;
+  }
+
+  const xsrfCookies = document.cookie.split(';')
+    .map(c => c.trim())
+    .filter(c => c.startsWith(name + '='));
+
+  if (xsrfCookies.length === 0) {
+    return null;
+  }
+  return decodeURIComponent(xsrfCookies[0].split('=')[1]);
+}
+
+const csrfToken = getCookie('CSRF-TOKEN');
+
+const headers = new Headers({
+  'Content-Type': 'x-www-form-urlencoded',
+  'X-CSRF-TOKEN': '{{csrf_token()}}'
+});
+
+var myInit = {
+  method: 'POST',
+  headers: headers,
+  mode: 'cors',
+  cache: 'default'
+};
+
+
+console.log("http://localhost:8080/jalon2/public/likeCreate/'{{Auth::user()->name}}'/'{{$film->ID}}'");
+likeBouton.addEventListener("click", function (e) {
+  console.log(media + " " + user);
+  if ({{Auth::user()->name}}){
+  let request = $.ajax({
+    type: "POST",
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    url: "http://localhost:8080/jalon2/public/likeCreate/"+user+"/"+media,
+    success: function (msg) {
+      
+    },
+    error: function (resultat, statut, erreur) {
+      // e.preventDefault();
+      // alert('Un problème est survenu lors de la récupération des informations');
+    }
+  });
+}
+});
+        </script>
     </body>
 </html>
 

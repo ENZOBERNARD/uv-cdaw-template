@@ -15,8 +15,9 @@ $lenght = count($films);
             @endif
 
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
+            <a  href="pagefilm/{{$films[$i]->ID}}">
                 <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i]->AFFICHE)}}" alt=""
-                    data-image-width="1280" data-image-height="853" width="150" height="250">
+                    data-image-width="1280" data-image-height="853" width="150" height="250"></a>
                 <p class="u-align-center u-text u-text-1"> {{$films[$i]->TITRE}}</p>
                 <div class="u-expanded-width u-list u-list-1">
                     <div class="u-repeater u-repeater-1">

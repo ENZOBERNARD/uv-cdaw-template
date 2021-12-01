@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Medias;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class FilmController extends Controller
 {
     public function readAllFilm() {
@@ -41,6 +45,39 @@ class FilmController extends Controller
 
     public function afficherAllFilm(){
         $films = Medias::all();
+        $mediaVu =new Medias;
+        $mediaLike = [];
+        if(Auth::check()){
+            $user=Auth::user()->id;
+            $mediaVu = Db::table('MEDIA_TABLE')->distinct()
+            ->leftJoin('VOIR',function($join) use ($user)
+            {
+                $join->on('MEDIA_TABLE.ID','=','VOIR.ID_MEDIA');
+            })->where('VOIR.ID_USERS',$user)->get();
+
+            $mediaLike = Db::table('MEDIA_TABLE')->distinct()
+            ->leftJoin('AIMER_MEDIA',function($join) use ($user)
+            {
+                $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
+            })->where('AIMER_MEDIA.ID_USERS',$user)->get();
+        }
+        foreach($films as $film){
+            if($mediaVu.contains($film)){
+                $film->vu = true;
+            }
+            else{
+                $film->vu=false;
+            }
+            if($mediaLike.contains($film)){
+                $film->like = true;
+            }
+            else{
+                $film->like=false;
+            }
+        }
+    
+        
+
         return view('contenus.listeFilm',['films'=>$films]);
         //return $films[0] ;
     }

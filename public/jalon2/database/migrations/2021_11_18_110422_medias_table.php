@@ -25,6 +25,7 @@ class MediasTable extends Migration
             $table->string('AFFICHE',300);
             $table->integer('NOTE')->default(0);
             $table->integer('NOMBRE_EPISODE')->default(0);
+            $table->string('GENRE',300);
             $table->timestamps();
         });
     }

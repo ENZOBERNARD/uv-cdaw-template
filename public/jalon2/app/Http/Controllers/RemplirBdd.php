@@ -54,6 +54,7 @@ class RemplirBdd extends Controller
             $media->PAYS = $filmInfo['countries'];
             $media->AFFICHE = $m['image'];
             $media->NOTE = $m['imDbRating'];
+            $media->GENRE = $filmInfo['genres'];
             $media->save();
             $index = $index + 1;
             }

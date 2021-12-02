@@ -35,7 +35,7 @@
                 <div class="d-inline collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('profile.show') }}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('profile.show') }}">Profil</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Films</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Séries</a></li>
                         <!--<li class="nav-item" style="margin-right: 80px"><a class="nav-link" href="#signup">Favoris</a></li>-->
@@ -60,7 +60,7 @@
                             </button> -->
                             </div>
                         </li>
-                        <li><img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="border-radius: 50%;" /> </li>
+                        <li><img class="image rounded-circle" src="{{(Auth::user()->profile_photo_url)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; "> </li> 
                         <li style="margin-left:80px;width:50px; display: inline-block!important;" class="nav-item">
                         <form method="POST" action="{{ route('logout') }}">
                     @csrf

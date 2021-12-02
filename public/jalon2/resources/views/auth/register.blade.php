@@ -32,10 +32,7 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="profile_photo_url" value="{{ __('Photo') }}" />
-                <x-jet-input id="profile_photo_url" class="block mt-1 w-full" type="img" name="name" :value="old('profile_photo_url')" required autofocus autocomplete="name" />
-            </div>
+            
 
             <div>
                 <x-jet-label for="name" value="{{ __('Pseudo') }}" />

@@ -55,3 +55,5 @@ Route::get('/voirCreate/{user}/{media}','App\Http\Controllers\VoirController@cre
 
 Route::get('/historique','App\Http\Controllers\HistoriqueController@historique');
 
+Route::post('/profile','App\Http\Controllers\ProfileController@upload');
+

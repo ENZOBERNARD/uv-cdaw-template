@@ -12,6 +12,8 @@
   .u-section-1 .u-container-layout-1 {
     padding-bottom: 0;
     padding-top: 0;
+    background-color:grey;
+    border: 2px dotted;
   }
   
   .u-section-1 .u-image-1 {
@@ -22,10 +24,16 @@
   }
   
   .u-section-1 .u-text-1 {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
     background-image: none;
     text-align: center;
     margin: 0 8px;
+    min-height: 50px;
+    max-height:50px;
+    overflow:hidden;
+    vertical-align : middle;
+    line-height: 50px;
+
   }
   
   .u-section-1 .u-list-1 {

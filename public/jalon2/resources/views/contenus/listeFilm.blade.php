@@ -6,14 +6,14 @@ $lenght = count($films);
 @section('content')
 <link rel="stylesheet" href="css/listefilm.css" media="screen">
 <link rel="stylesheet" href="css/listefilm2.css" media="screen">
->
+{{$films[0]->vu}}
 <section class="u-clearfix u-section-1" id="sec-a5e1">
 
     @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1">
             @endif
-
+            
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
             <a  href="pagefilm/{{$films[$i]->ID}}">
                 <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i]->AFFICHE)}}" alt=""
@@ -60,6 +60,7 @@ $lenght = count($films);
                                                 points="448,224 288,224 288,64 224,64 224,224 64,224 64,288 224,288 224,448 288,448 288,288 448,288 ">
                                             </polygon>
                                         </svg><img></span>
+                                        {{$films[$i]->vu}}
                                 </a>
                             </div>
                         </div>

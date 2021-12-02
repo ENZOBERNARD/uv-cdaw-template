@@ -4,6 +4,10 @@
  * Copyright 2014-2021 Froala Labs
  */
 
+ .h2 .titreSection {
+   margin-left : 120px !important;
+ }
+
  .fr-clearfix::after {
     clear: both;
     display: block;
@@ -34909,6 +34913,7 @@
           line-height: 1.1;
           margin-top: 20px;
           margin-bottom: 20px;
+          margin-left: 150px;
           }
           h1:not(.u-title)
           {

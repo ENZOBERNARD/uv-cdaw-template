@@ -7,6 +7,7 @@ $lenght = count($films);
 <link rel="stylesheet" href="css/listefilm.css" media="screen">
 <link rel="stylesheet" href="css/listefilm2.css" media="screen">
 >
+<h2 class="u-subtitle">Mon Historique</h2>
 <section class="u-clearfix u-section-1" id="sec-a5e1">
     @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">

@@ -60,27 +60,28 @@ class FilmController extends Controller
             {
                 $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
             })->where('AIMER_MEDIA.ID_USERS',$user)->get();
-        }
-        foreach($films as $film){
-            if($mediaVu.contains($film)){
-                $film->vu = true;
-            }
-            else{
-                $film->vu=false;
-            }
-            if($mediaLike.contains($film)){
-                $film->like = true;
-            }
-            else{
-                $film->like=false;
-            }
-        }
-    
         
-
+            foreach($films as $film){
+                foreach($mediaVu as $mv){
+                    if($film->ID == $mv->ID_MEDIA){
+                        $film->vu = 1;
+                        break;
+                    }
+                    else{
+                        $film->vu=0;
+                    }
+                }
+                foreach($mediaLike as $ml)
+                    if($film->ID == $ml->ID_MEDIA){
+                        $film->like = 1;
+                        break;
+                    }
+                    else{
+                        $film->like=0;
+                    }
+        
+                }
         return view('contenus.listeFilm',['films'=>$films]);
-        //return $films[0] ;
     }
 }
-
-
+}

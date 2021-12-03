@@ -45,6 +45,12 @@ class FilmController extends Controller
 
     public function afficherAllFilm(){
         $films = Medias::all();
+        $films = FilmController::findVuAndLike($films);
+        return view('contenus.listeFilm',['films'=>$films]);
+
+}
+
+    public static function findVuAndLike($films){
         $mediaVu =new Medias;
         $mediaLike = [];
         if(Auth::check()){
@@ -60,7 +66,7 @@ class FilmController extends Controller
             {
                 $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
             })->where('AIMER_MEDIA.ID_USERS',$user)->get();
-        
+
             foreach($films as $film){
                 foreach($mediaVu as $mv){
                     if($film->ID == $mv->ID_MEDIA){
@@ -79,28 +85,29 @@ class FilmController extends Controller
                     else{
                         $film->like=0;
                     }
-        
+
                 }
-        return view('contenus.listeFilm',['films'=>$films]);
+            }
+            return $films;
     }
 }
 public function postSearch(Request $request)
 {
-    
+
     $filters = [
            'genre' => $request->genre,
        ];
-    
+
      $films = Medias::where(function ($query) use ($filters) {
            if ($filters['genre']) {
                foreach ($filters['genre'] as $g)
                {
                 $query->where('GENRE', 'LIKE', '%'.$g.'%');
-               } 
+               }
                //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
            }
        })->get();
-    
+
        $mediaVu =new Medias;
        $mediaLike = [];
        if(Auth::check()){
@@ -116,7 +123,7 @@ public function postSearch(Request $request)
            {
                $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
            })->where('AIMER_MEDIA.ID_USERS',$user)->get();
-       
+
            foreach($films as $film){
                foreach($mediaVu as $mv){
                    if($film->ID == $mv->ID_MEDIA){
@@ -138,8 +145,8 @@ public function postSearch(Request $request)
                 }
                }
        }
-    
+
        return view('contenus.listeFilm',['films'=>$films]);
  }
- 
+
 }

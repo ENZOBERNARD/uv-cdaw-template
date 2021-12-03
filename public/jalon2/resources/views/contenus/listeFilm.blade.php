@@ -1,6 +1,10 @@
 @extends('templates.template')
 @php
 $lenght = count($films);
+$userId=-1;
+if(Auth::check()){
+    $userId = Auth::user()->id;
+}
 @endphp
 
 @section('content')
@@ -137,7 +141,7 @@ $lenght = count($films);
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
         <script>
-            var user = {{Auth::user()->id}};
+            var user = {{$userId}};
 //----------Aimer----------------------
             $( document ).ready(function() {
                 nodeLikeBoutons = document.getElementsByClassName('likeBouton');
@@ -147,7 +151,7 @@ $lenght = count($films);
                         console.log(e.currentTarget);
                         let element = e.currentTarget;
                         let media = e.currentTarget.classList[11].substr(6);
-                        if ({{Auth::user()->id}}){
+                        if ({{Auth::check()}}){
                         let request = $.ajax({
                             type: "GET",
                             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -177,7 +181,7 @@ $lenght = count($films);
                     voirBouton.addEventListener("click", function (e) {
                         let media = e.currentTarget.classList[11].substr(6);
                         let element = e.currentTarget;
-                        if ({{Auth::user()->id}}){
+                        if ({{Auth::check()}}){
                         let request = $.ajax({
                             type: "GET",
                             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },

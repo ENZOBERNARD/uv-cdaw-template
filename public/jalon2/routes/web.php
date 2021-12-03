@@ -57,3 +57,4 @@ Route::get('/historique','App\Http\Controllers\HistoriqueController@historique')
 
 Route::post('/profile','App\Http\Controllers\ProfileController@upload');
 
+Route::post('/allFilm','App\Http\Controllers\FilmController@postSearch');

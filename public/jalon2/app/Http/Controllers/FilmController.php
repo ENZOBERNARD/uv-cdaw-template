@@ -47,7 +47,7 @@ class FilmController extends Controller
         $films = Medias::all();
         $films = FilmController::findVuAndLike($films);
         return view('contenus.listeFilm',['films'=>$films]);
-    
+
 }
 
     public static function findVuAndLike($films){
@@ -66,7 +66,7 @@ class FilmController extends Controller
             {
                 $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
             })->where('AIMER_MEDIA.ID_USERS',$user)->get();
-        
+
             foreach($films as $film){
                 foreach($mediaVu as $mv){
                     if($film->ID == $mv->ID_MEDIA){
@@ -85,9 +85,68 @@ class FilmController extends Controller
                     else{
                         $film->like=0;
                     }
-        
+
                 }
             }
             return $films;
     }
+}
+public function postSearch(Request $request)
+{
+
+    $filters = [
+           'genre' => $request->genre,
+       ];
+
+     $films = Medias::where(function ($query) use ($filters) {
+           if ($filters['genre']) {
+               foreach ($filters['genre'] as $g)
+               {
+                $query->where('GENRE', 'LIKE', '%'.$g.'%');
+               }
+               //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
+           }
+       })->get();
+
+       $mediaVu =new Medias;
+       $mediaLike = [];
+       if(Auth::check()){
+           $user=Auth::user()->id;
+           $mediaVu = Db::table('MEDIA_TABLE')->distinct()
+           ->leftJoin('VOIR',function($join) use ($user)
+           {
+               $join->on('MEDIA_TABLE.ID','=','VOIR.ID_MEDIA');
+           })->where('VOIR.ID_USERS',$user)->get();
+
+           $mediaLike = Db::table('MEDIA_TABLE')->distinct()
+           ->leftJoin('AIMER_MEDIA',function($join) use ($user)
+           {
+               $join->on('MEDIA_TABLE.ID','=','AIMER_MEDIA.ID_MEDIA');
+           })->where('AIMER_MEDIA.ID_USERS',$user)->get();
+
+           foreach($films as $film){
+               foreach($mediaVu as $mv){
+                   if($film->ID == $mv->ID_MEDIA){
+                       $film->vu = 1;
+                       break;
+                   }
+                   else{
+                       $film->vu=0;
+                   }
+               }
+               foreach($mediaLike as $ml){
+                   if($film->ID == $ml->ID_MEDIA){
+                       $film->like = 1;
+                       break;
+                   }
+                   else{
+                       $film->like=0;
+                   }
+                }
+               }
+       }
+
+       return view('contenus.listeFilm',['films'=>$films]);
+ }
+
 }

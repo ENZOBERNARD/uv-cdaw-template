@@ -11,7 +11,40 @@ if(Auth::check()){
 <link rel="stylesheet" href="css/listefilm.css" media="screen">
 <link rel="stylesheet" href="css/listefilm2.css" media="screen">
 
+
+
+
 <section class="u-clearfix u-section-1" id="sec-a5e1">
+<h3>Filtres</h3>
+<form method="post" action="{{url('allFilm')}}"  >
+    @csrf 
+     <div >
+       <label ><strong >Genre </strong></label>
+          <div >
+             <div >
+               <select name="genre[]" multiple id='myselect'> 
+                  <option value="">Not Given</option>
+                  <option value="Drama" >Drama</option>
+                  <option value="Action" >Action</option>
+                  <option value="Crime" >Crime</option>
+                  <option value="Thriller" >Thriller</option>
+                  <option value="Biography" >Biography</option>
+                  <option value="History" >History</option>
+                  <option value="Adventure" >Adventure</option>
+                  <option value="Fantasy" >Fantasy</option>
+                  <option value="Western" >Western</option>
+                  <option value="Mystery" >Mystery</option>
+                  <option value="War" >War</option>
+                  <option value="Sci-Fi" >Sci-Fi</option>
+               </select>
+             </div>
+           </div>
+     </div>
+     <button type="submit" class="btn btn-primary">Search</button>
+
+
+
+</form>
 
     @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
@@ -106,6 +139,7 @@ if(Auth::check()){
         @endif
         @endfor
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
         <script>
             var user = {{$userId}};
 //----------Aimer----------------------
@@ -176,6 +210,13 @@ if(Auth::check()){
 
 
         </script>
+        <script>
+  $('#myselect').select2({
+    width: '100%',
+    placeholder: "Select an Option",
+    allowClear: true
+  });
+</script>
 
 
 </section>

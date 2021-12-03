@@ -81,7 +81,8 @@ class FilmController extends Controller
                     }
         
                 }
+            }
         return view('contenus.listeFilm',['films'=>$films]);
-    }
+    
 }
 }

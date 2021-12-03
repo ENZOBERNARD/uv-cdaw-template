@@ -26,5 +26,6 @@ class HistoriqueController extends Controller
         })->where('VOIR.ID_USERS',$user)->orderBy('VOIR.DATE')->get();
         $mediaVu = FilmController::findVuAndLike($mediaVu);
         return view('contenus.historique',['films'=>$mediaVu]);
+        //return $mediaVu;
     }
 }

@@ -90,7 +90,7 @@ class FilmController extends Controller
             }
             return $films;
     }
-}
+
 public function postSearch(Request $request)
 {
 

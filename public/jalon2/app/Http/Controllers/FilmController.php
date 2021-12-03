@@ -45,6 +45,12 @@ class FilmController extends Controller
 
     public function afficherAllFilm(){
         $films = Medias::all();
+        $films = FilmController::findVuAndLike($films);
+        return view('contenus.listeFilm',['films'=>$films]);
+    
+}
+
+    public static function findVuAndLike($films){
         $mediaVu =new Medias;
         $mediaLike = [];
         if(Auth::check()){
@@ -82,7 +88,6 @@ class FilmController extends Controller
         
                 }
             }
-        return view('contenus.listeFilm',['films'=>$films]);
-    
-}
+            return $films;
+    }
 }

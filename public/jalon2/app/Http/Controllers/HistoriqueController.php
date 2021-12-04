@@ -10,6 +10,7 @@ use App\Models\User;
 
 use App\Models\Voir;
 use App\Models\Medias;
+use App\Models\Playlist;
 
 use App\Http\Controllers\FilmController;
 
@@ -17,7 +18,7 @@ use App\Http\Controllers\FilmController;
 
 class HistoriqueController extends Controller
 {
-    public static function historique(){
+    public function historique(){
         $user = Auth::user()->id;
         $mediaVu = Db::table('MEDIA_TABLE')->distinct()
         ->leftJoin('VOIR',function($join) use ($user)
@@ -25,7 +26,10 @@ class HistoriqueController extends Controller
             $join->on('MEDIA_TABLE.ID','=','VOIR.ID_MEDIA');
         })->where('VOIR.ID_USERS',$user)->orderBy('VOIR.DATE')->get();
         $mediaVu = FilmController::findVuAndLike($mediaVu);
-        return view('contenus.historique',['films'=>$mediaVu]);
+
+        $playlist = Playlist::where('PSEUDO', '=', $user)->get();
+        return view('contenus.historique',['films'=>$mediaVu,'playlist'=>$playlist]);
         //return $mediaVu;
+        //return $playlist;
     }
 }

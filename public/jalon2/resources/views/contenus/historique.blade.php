@@ -117,7 +117,7 @@ if(Auth::check()){
             @endif
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
             <a  href="pagefilm/{{$films[$i]->ID}}">
-                <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i]->AFFICHE)}}" alt=""
+                <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i]->AFFICHE)}}" alt="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,3,128,176_AL_.jpg"
                     data-image-width="1280" data-image-height="853" width="150" height="250"></a>
                 <p class="u-align-center u-text u-text-1"> {{$films[$i]->TITRE}}</p>
                 <div class="u-expanded-width u-list u-list-1">
@@ -269,6 +269,7 @@ if(Auth::check()){
                     });
                 })
             });
+            
             
 
 

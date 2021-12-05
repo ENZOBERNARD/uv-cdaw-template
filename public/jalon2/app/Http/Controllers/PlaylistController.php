@@ -45,6 +45,11 @@ class PlaylistController extends Controller
         //return $films;
         return view('contenus.listePlaylist',['films'=>$films,'playlist'=>$playlistInfo]);
     }
+
+    public function allPlaylistById($id){
+        $playlists = Playlist::where('PSEUDO','=',$id)->get();
+        return $playlists;
+    }
     
     
 }

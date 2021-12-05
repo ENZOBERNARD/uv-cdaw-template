@@ -11,7 +11,7 @@ class RemplirBdd extends Controller
     public function RemplirMaBaseDeFilm(){
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://imdb-api.com/en/API/Top250Movies/k_3iooo844",
+        CURLOPT_URL => "https://imdb-api.com/en/API/Top250Movies/k_i47ursy0",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -32,7 +32,7 @@ class RemplirBdd extends Controller
             $id = $m["id"];
             $curl2 = curl_init();
             curl_setopt_array($curl2, array(
-            CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_3iooo844/". $id,
+            CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_i47ursy0/". $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -88,7 +88,7 @@ class RemplirBdd extends Controller
             $id = $m["id"];
             $curl2 = curl_init();
             curl_setopt_array($curl2, array(
-            CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_3iooo844/". $id,
+            CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_i47ursy0/". $id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

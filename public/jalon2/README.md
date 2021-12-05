@@ -143,7 +143,9 @@ Nous avons prévu de travailler aussi sur les fonctionnalités suivantes, mais n
 
 Les pages sont longues a être chargé et il est possible lors d'un appel asynchrone que le serveur soit long à répondre, cela est du à docker, nous n'avons pas fait les changements pour améliorer la rapidité par manque de temps. Par exemple lors d'un j'aime le coeur deviendra rouge quelques secondes après le click.
 
-
+## Vidéo de présentation
+lien : 
+``https://drive.google.com/file/d/1ZtheZ7iObNtb2IZEyPXEwqMxnG9qqy6o/view?usp=sharing``
 
 
 

@@ -58,6 +58,10 @@
               <input type="text" class="form-control" name="AFFICHE"/>
           </div>
           <div class="form-group">
+              <label for="GENRE">GENRE</label>
+              <input type="text" class="form-control" name="GENRE"/>
+          </div>
+          <div class="form-group">
               <label for="NOTE">NOTE</label>
               <input type="text" class="form-control" name="NOTE"/>
           </div>

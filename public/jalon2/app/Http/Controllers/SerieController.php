@@ -43,9 +43,10 @@ class SerieController extends Controller
     }
 
     public function afficherAllSerie(){
-        $films = Medias::all()->where('TYPE', '=', "TVSeries");
+        $films = Medias::all()->where('TYPE', "TVSeries");
         $films = SerieController::findVuAndLike($films);
         return view('contenus.listeSerie',['films'=>$films]);
+        //return $films;
 
 }
 

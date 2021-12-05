@@ -135,9 +135,10 @@ if(Auth::check()){
                         </div>
                         <div class="u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
-                            
-                                <a href="addMediaInPlaylist/1/{{$films[$i]->ID}}"
-                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-3"><span
+                            <div class="dropdown show plus num{{$films[$i]->ID}}">
+                                <a id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-3 dropdown-toggle">
+                                    <span
                                         class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 0 512 512"
                                             style="width: 1em; height: 1em;">
                                             <polygon
@@ -146,6 +147,9 @@ if(Auth::check()){
                                         </svg><img></span>
                                         
                                 </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dd{{$films[$i]->ID}}">hello
+                                </div>
+                                </div>
                             
                             </div>
                         </div>
@@ -222,7 +226,39 @@ if(Auth::check()){
                     });
                 })
             });
-            
+
+            //--------------------------PLUS---------------------------------------------------
+            $( document ).ready(function() {
+                nodePlusBoutons = document.getElementsByClassName('plus');
+                console.log(nodePlusBoutons);
+                if ({{Auth::check()}}){
+                        let request = $.ajax({
+                            type: "GET",
+                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                            url: "http://localhost:8080/jalon2/public//allPlaylistByUserId/"+user+"/",
+                            success: function (msg) {
+                               
+                                    for (let plus of nodePlusBoutons){
+                                        
+                                        let idMedia = plus.classList[3].substr(3);
+                                        console.log(plus);
+
+                                        for (let playlist of msg){
+                                            //console.log(document.getElementById("dd"+idMedia));
+                                            //dd = document.getElementById("dd"+idMedia);
+                                            //dd.innerHTML ="<a>Action</a>";
+                                        }
+                               
+                                    }
+                            },
+                            error: function (resultat, statut, erreur) {
+                            // e.preventDefault();
+                            // alert('Un problème est survenu lors de la récupération des informations');
+                            }
+                        });
+                        }
+
+            });
 
 
 

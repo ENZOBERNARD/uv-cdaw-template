@@ -4,6 +4,7 @@ Réalisation d'un site catalogue de média (films, séries, ...)
 
 Notre projet se trouve au niveau du path suivant: 'public/jalon2'
 
+
 ## Configuration Base de données
 
 Pour faire fonctionner l'application en local, vous devez :
@@ -18,6 +19,7 @@ php artisan migrate
 Pour remplir la base de données par :
 - des films vous utilisez l'url suivant:
 ``http://localhost:8080/jalon2/public/loadfilm``
+(il est possible qqu'un message d'erreur s'affiche, la base s'est tout de même remplie partielement)
 - des séries vous utilisez l'url suivant:
 ``http://localhost:8080/jalon2/public/loadserie``
 
@@ -43,6 +45,32 @@ vous pouvez :
 - modifier le mot de passe
 - supprimer le compte
 
+## Navbar
+
+### Home
+
+Permet de se rendre à la page d'accueil
+
+### Films
+
+Permet de voir la liste des films repertoriés.
+
+### Séries
+
+Permet de voir la liste des films repertoriés.
+
+### Favoris 
+Disponible uniquement lorsque l'utilisateur est connecté.
+Permet d'accéder à l'historique de visionnage ainsi qu'aux playlists crées par l'utilisateur. 
+
+### Search 
+
+Fonction indisponible pour le moment.
+
+### Se connecter / Déconnexion
+
+Permet de se connecter/s'inscrire et se déconnecter. 
+
 ## Medias disponible:
 Les médias sont répartis en 2:
 
@@ -66,7 +94,11 @@ Avec les filtres 'Genre' et 'Date de sortie'
 
 #### Marquer un media comme vu 
 
+Il vous suffit de cliquer sur l'oeil au niveau du média ( Le média sera ensuite disponible dans votre historique ( onglet favoris de la navbar)
+
 #### Attribuer un "j'aime" à media
+
+Il vous suffit de cliquer sur le coeur au niveau du média
 
 #### Ajouter dans une playlist
 
@@ -77,12 +109,17 @@ Vous trouverez la liste des medias vus et aimés dans la page favoris
 
 ### Création d'une playlist
 
-pour la création d'une playlist vous trouverez le formulaire dans la page historique ou bien avec l'url suivant:
+pour la création d'une playlist vous trouverez le formulaire dans la page favoris en dessous de l'historique ou bien avec l'url suivant:
 ``http://localhost:8080/jalon2/public/createPlaylist``
 
 ### Ajouter dans une playlist
 
-Pour ajouter un média dans une playlist il suffit de cliquer sur le bouton '+'
+Pour ajouter un média dans une playlist il suffit de cliquer sur le bouton '+'. Pour le moment il n'est possible d'ajouter un media que dans la playlist numéro 1.
+
+### Consulter sa playlist
+
+Lors du click sur une playlist : une page avec tous les films contenus.
+La miniature de toutes les playlists est celle d'un film, nous n'avons pas eu le temps de developper cette fonctionnalité.
 
 ## Page d'accueil:
 
@@ -101,6 +138,10 @@ Nous avons prévu de travailler aussi sur les fonctionnalités suivantes, mais n
 - S'abonner à une playlist d'un autre utilisateur
 - Afficher les medias recommandés à un utilisateur particulier
 - Travailler sur l'UX de l'application
+
+## Problèmes 
+
+Il est possible lors d'un appel asynchrone que le serveur soit long à répondre, cela est du à docker, nous n'avons pas fait les changements pour améliorer la rapidité par manque de temps. Par exemple lors d'un j'aime le coeur deviendra rouge quelques secondes après le click.
 
 
 

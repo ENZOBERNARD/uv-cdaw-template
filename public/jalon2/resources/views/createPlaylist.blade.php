@@ -34,7 +34,7 @@
               <input type="text" class="form-control" name="VIGNETTE"/>
           </div>
           <div class="form-group">
-              <label for="ACTEURS">PSEUDO</label>
+              <label for="ACTEURS" hidden="true">PSEUDO</label>
               <input type="text" class="form-control" name="PSEUDO"/ value="{{Auth::user()->id}}" hidden="true">
           </div>
           <button type="submit" class="btn btn-primary">Créer</button>

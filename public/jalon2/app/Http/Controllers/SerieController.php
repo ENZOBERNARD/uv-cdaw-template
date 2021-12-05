@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Medias;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class FilmController extends Controller
+class SerieController extends Controller
 {
-    public function readAllFilm() {
-       //return $this->belongsTo(Media::class, "")
-    }
+
+    //
+
 
     public function readFilmById($id) {
         $film = Medias::where('ID', $id)->get();
@@ -37,16 +36,16 @@ class FilmController extends Controller
         return 'Film supprimé avec succès!';
     }
 
-    public function afficherFilm($id){
+    public function afficherSerie($id){
         $film = $this->readFilmById($id);
-        return view('contenus.film',['film' => $film[0]]);
+        return view('contenus.film',['film' => $film]);
         //return $film;
     }
 
-    public function afficherAllFilm(){
-        $films = Medias::all()->where('TYPE', '=', "Movie");
-        $films = FilmController::findVuAndLike($films);
-        return view('contenus.listeFilm',['films'=>$films]);
+    public function afficherAllSerie(){
+        $films = Medias::all()->where('TYPE', '=', "TVSeries");
+        $films = SerieController::findVuAndLike($films);
+        return view('contenus.listeSerie',['films'=>$films]);
 
 }
 
@@ -156,5 +155,4 @@ public function postSearch(Request $request)
 
        return view('contenus.listeFilm',['films'=>$films]);
  }
-
 }

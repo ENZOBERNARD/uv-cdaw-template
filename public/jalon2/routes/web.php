@@ -23,7 +23,7 @@ Route::post('/filmCreate', 'App\Http\Controllers\FilmController@createFilm');
 Route::post('/filmUpdate/{id}', 'App\Http\Controllers\FilmController@updateFilmById');
 Route::post('/filmDelete/{id}', 'App\Http\Controllers\FilmController@deleteFilmById');
 
-Route::get('/', 'App\Http\Controllers\LoginController@login');
+Route::get('/', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/jalon2show', 'App\Http\Controllers\FormCrudController@show');
 Route::get('/jalon2create', 'App\Http\Controllers\FormCrudController@create');
@@ -34,7 +34,7 @@ Route::get('comptes', function() {
     // Réservé aux utilisateurs authentifiés
 })->middleware('auth');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->name('dashboard');
 
 
@@ -45,9 +45,15 @@ Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 
+Route::get('/loadserie', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeSerie');
+
 Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
+Route::get('/pageserie/{id}','App\Http\Controllers\SerieController@afficherSerie');
+
 Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');
+
+Route::get('/allSerie','App\Http\Controllers\SerieController@afficherAllSerie');
 
 Route::get('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaController@createLike');
 

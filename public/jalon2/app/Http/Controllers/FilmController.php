@@ -77,7 +77,10 @@ class FilmController extends Controller
                         $film->vu=0;
                     }
                 }
-                foreach($mediaLike as $ml)
+                if($mediaVu::empty()){
+                    $film->vu=0;
+                }
+                foreach($mediaLike as $ml){
                     if($film->ID == $ml->ID_MEDIA){
                         $film->like = 1;
                         break;
@@ -87,9 +90,13 @@ class FilmController extends Controller
                     }
 
                 }
+                if($mediaVu::empty()){
+                    $film->like=0;
+                }
             }
             return $films;
     }
+}
 
 public function postSearch(Request $request)
 {

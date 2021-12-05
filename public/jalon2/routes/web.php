@@ -45,22 +45,22 @@ Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 
-Route::get('/loadserie', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeSerie');
-
-Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
 Route::get('/pageserie/{id}','App\Http\Controllers\SerieController@afficherSerie');
 
 Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');
+Route::post('/allFilm','App\Http\Controllers\FilmController@postSearch');
+Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
 Route::get('/allSerie','App\Http\Controllers\SerieController@afficherAllSerie');
 
 Route::get('/likeCreate/{user}/{media}','App\Http\Controllers\AimerMediaController@createLike');
-
 Route::get('/voirCreate/{user}/{media}','App\Http\Controllers\VoirController@createVoir');
 
 Route::get('/historique','App\Http\Controllers\HistoriqueController@historique');
 
 Route::post('/profile','App\Http\Controllers\ProfileController@upload');
 
-Route::post('/allFilm','App\Http\Controllers\FilmController@postSearch');
+
+Route::get('/createPlaylist','App\Http\Controllers\PlaylistController@create');
+Route::post('/addPlaylist','App\Http\Controllers\PlaylistController@add');

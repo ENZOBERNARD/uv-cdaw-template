@@ -16,7 +16,7 @@ class MediasTable extends Migration
         Schema::create('MEDIA_TABLE', function (Blueprint $table) {
             $table->increments('ID');
             $table->string('TITRE',100);
-            $table->string('DESCRIPTION',1000);
+            $table->string('DESCRIPTION',3000);
             $table->date('DATE_DE_SORTIE');
             $table->integer('DUREE')->default(0);
             $table->string('ACTEURS',300);

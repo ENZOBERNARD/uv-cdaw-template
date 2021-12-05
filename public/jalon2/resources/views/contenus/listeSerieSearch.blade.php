@@ -65,7 +65,7 @@ if(Auth::check()){
 
 </form>
 
-    @for ($i = 27; $i < 40; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
+    @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1">
             @endif

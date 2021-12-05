@@ -107,6 +107,7 @@ public function postSearch(Request $request)
        ];
 
      $films = Medias::where(function ($query) use ($filters) {
+        $query->where('TYPE', '=','Movie');
            if ($filters['genre']) {
                foreach ($filters['genre'] as $g)
                {
@@ -115,10 +116,7 @@ public function postSearch(Request $request)
                //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
            }
            if ($filters['year']) {
-            foreach ($filters['year'] as $y)
-            {
-             $query->where('DATE_DE_SORTIE', 'LIKE','%'.$y.'%');
-            }
+             $query->where('DATE_DE_SORTIE', 'LIKE','%'.$filters['year'].'%');
             //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
         }
        })->get();

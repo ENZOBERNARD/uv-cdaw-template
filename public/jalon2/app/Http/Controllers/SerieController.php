@@ -38,8 +38,8 @@ class SerieController extends Controller
 
     public function afficherSerie($id){
         $film = $this->readFilmById($id);
-        return view('contenus.film',['film' => $film]);
-        //return $film;
+        return view('contenus.film',['film' => $film[0]]);
+        //return $film[0];
     }
 
     public function afficherAllSerie(){
@@ -99,6 +99,7 @@ public function postSearch(Request $request)
        ];
 
      $films = Medias::where(function ($query) use ($filters) {
+        $query->where('TYPE', '=','TVSeries');
            if ($filters['genre']) {
                foreach ($filters['genre'] as $g)
                {
@@ -107,10 +108,7 @@ public function postSearch(Request $request)
                //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
            }
            if ($filters['year']) {
-            foreach ($filters['year'] as $y)
-            {
-             $query->where('DATE_DE_SORTIE', 'LIKE','%'.$y.'%');
-            }
+             $query->where('DATE_DE_SORTIE', 'LIKE','%'.$filters['year'].'%');
             //$query->where('GENRE', 'LIKE', '%'.$filters['genre'].'%');
         }
        })->get();
@@ -153,6 +151,6 @@ public function postSearch(Request $request)
                }
        }
 
-       return view('contenus.listeFilm',['films'=>$films]);
+       return view('contenus.listeSerieSearch',['films'=>$films]);
  }
 }

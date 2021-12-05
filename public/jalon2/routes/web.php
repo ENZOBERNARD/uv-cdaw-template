@@ -45,11 +45,15 @@ Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/loadfilm', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeFilm');
 
+Route::get('/loadserie', 'App\Http\Controllers\RemplirBdd@RemplirMaBaseDeSerie');
+
 
 Route::get('/pageserie/{id}','App\Http\Controllers\SerieController@afficherSerie');
 
 Route::get('/allFilm','App\Http\Controllers\FilmController@afficherAllFilm');
 Route::post('/allFilm','App\Http\Controllers\FilmController@postSearch');
+
+Route::post('/allSerie','App\Http\Controllers\SerieController@postSearch');
 Route::get('/pagefilm/{id}','App\Http\Controllers\FilmController@afficherFilm');
 
 Route::get('/allSerie','App\Http\Controllers\SerieController@afficherAllSerie');

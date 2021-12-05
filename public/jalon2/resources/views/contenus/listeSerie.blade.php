@@ -16,7 +16,7 @@ if(Auth::check()){
 
 <section class="u-clearfix u-section-1" id="sec-a5e1">
 <h3>Filtres</h3>
-<form method="post" action="{{url('allFilm')}}"  >
+<form method="post" action="{{url('allSerie')}}"  >
     @csrf 
      <div >
        <label ><strong >Genre </strong></label>
@@ -65,7 +65,7 @@ if(Auth::check()){
 
 </form>
 
-    @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
+    @for ($i = 28; $i < 40; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1">
             @endif

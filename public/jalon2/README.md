@@ -141,7 +141,7 @@ Nous avons prévu de travailler aussi sur les fonctionnalités suivantes, mais n
 
 ## Problèmes 
 
-Il est possible lors d'un appel asynchrone que le serveur soit long à répondre, cela est du à docker, nous n'avons pas fait les changements pour améliorer la rapidité par manque de temps. Par exemple lors d'un j'aime le coeur deviendra rouge quelques secondes après le click.
+Les pages sont longues a être chargé et il est possible lors d'un appel asynchrone que le serveur soit long à répondre, cela est du à docker, nous n'avons pas fait les changements pour améliorer la rapidité par manque de temps. Par exemple lors d'un j'aime le coeur deviendra rouge quelques secondes après le click.
 
 
 

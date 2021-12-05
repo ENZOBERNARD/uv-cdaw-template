@@ -68,3 +68,9 @@ Route::post('/profile','App\Http\Controllers\ProfileController@upload');
 
 Route::get('/createPlaylist','App\Http\Controllers\PlaylistController@create');
 Route::post('/addPlaylist','App\Http\Controllers\PlaylistController@add');
+Route::get('/allPlaylistByUserId/{id}','App\Http\Controllers\PlaylistController@AllPlaylistById');
+
+Route::get('/addMediaInPlaylist/{playlist}/{media}','App\Http\Controllers\PlaylistController@addMedia');
+
+Route::get('/listeFilmOnPlaylist/{playlist}','App\Http\Controllers\PlaylistController@listeFilm');
+

@@ -136,7 +136,7 @@ if(Auth::check()){
                         <div class="u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
                             
-                                <a
+                                <a href="addMediaInPlaylist/1/{{$films[$i]->ID}}"
                                     class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-3"><span
                                         class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 0 512 512"
                                             style="width: 1em; height: 1em;">

@@ -18,7 +18,7 @@ use App\Http\Controllers\FilmController;
 
 class HistoriqueController extends Controller
 {
-    public function historique(){
+    public static function historique(){
         $user = Auth::user()->id;
         $mediaVu = Db::table('MEDIA_TABLE')->distinct()
         ->leftJoin('VOIR',function($join) use ($user)

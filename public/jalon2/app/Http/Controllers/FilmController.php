@@ -47,6 +47,7 @@ class FilmController extends Controller
         $films = Medias::all()->where('TYPE', '=', "Movie");
         $films = FilmController::findVuAndLike($films);
         return view('contenus.listeFilm',['films'=>$films]);
+        //return $films;
 
 }
 
@@ -77,9 +78,7 @@ class FilmController extends Controller
                         $film->vu=0;
                     }
                 }
-                if($mediaVu::empty()){
-                    $film->vu=0;
-                }
+                
                 foreach($mediaLike as $ml){
                     if($film->ID == $ml->ID_MEDIA){
                         $film->like = 1;
@@ -89,9 +88,6 @@ class FilmController extends Controller
                         $film->like=0;
                     }
 
-                }
-                if($mediaVu::empty()){
-                    $film->like=0;
                 }
             }
             return $films;

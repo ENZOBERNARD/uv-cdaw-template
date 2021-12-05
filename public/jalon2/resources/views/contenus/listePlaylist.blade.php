@@ -64,7 +64,7 @@ if(Auth::check()){
 
 
 </form>
-
+    <h2>{{$playlist->NAME}}</h2>
     @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1">

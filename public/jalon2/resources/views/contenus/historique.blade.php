@@ -117,7 +117,7 @@ if(Auth::check()){
         <div class="u-align-center u-container-style u-group u-group-1">
             @endif
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
-            <a  href="">
+            <a  href="listeFilmOnPlaylist/{{$playlist[$i]->ID}}">
                 <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[0]->AFFICHE)}}"
                     data-image-width="1280" data-image-height="853" width="150" height="250"></a>
                 <p class="u-align-center u-text u-text-1"> {{$playlist[$i]->TITRE}}</p>

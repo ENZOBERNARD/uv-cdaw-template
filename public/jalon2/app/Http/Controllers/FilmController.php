@@ -92,6 +92,13 @@ class FilmController extends Controller
             }
             return $films;
     }
+    else {
+        foreach($films as $film){
+            $film->vu=0;
+            $film->like=0;
+        }
+        return $films;
+    }
 }
 
 public function postSearch(Request $request)

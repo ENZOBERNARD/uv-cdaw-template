@@ -68,3 +68,5 @@ Route::get('/allPlaylistByUserId/{id}','App\Http\Controllers\PlaylistController@
 
 Route::get('/addMediaInPlaylist/{playlist}/{media}','App\Http\Controllers\PlaylistController@addMedia');
 
+Route::get('/listeFilmOnPlaylist/{playlist}','App\Http\Controllers\PlaylistController@listeFilm');
+

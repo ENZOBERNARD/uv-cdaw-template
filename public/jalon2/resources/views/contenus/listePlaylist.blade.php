@@ -8,8 +8,8 @@ if(Auth::check()){
 @endphp
 
 @section('content')
-<link rel="stylesheet" href="css/listefilm.css" media="screen">
-<link rel="stylesheet" href="css/listefilm2.css" media="screen">
+<link rel="stylesheet" href="../css/listefilm.css" media="screen">
+<link rel="stylesheet" href="../css/listefilm2.css" media="screen">
 
 
 
@@ -64,7 +64,7 @@ if(Auth::check()){
 
 
 </form>
-    <h2>{{$playlist->NAME}}</h2>
+    <h2>{{$playlist->TITRE}}</h2>
     @for ($i = 0; $i < $lenght; $i++) @php $modulo=$i%8 @endphp @if($modulo==0) <div
         class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-group u-group-1">

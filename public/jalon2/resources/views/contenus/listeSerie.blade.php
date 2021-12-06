@@ -71,17 +71,17 @@ if(Auth::check()){
             @endif
             
             <div class="u-container-layout u-container-layout-1" style="margin-right:20px">
-            <a  href="pageserie/{{$films[$i+27]->ID}}">
-                <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i+27]->AFFICHE)}}" alt=""
+            <a  href="pageserie/{{$films[$i+31]->ID}}">
+                <img class="u-expanded-width u-image u-image-default u-image-1" src="{{URL::asset($films[$i+31]->AFFICHE)}}" alt=""
                     data-image-width="1280" data-image-height="853" width="150" height="250"></a>
-                <p class="u-align-center u-text u-text-1"> {{$films[$i+27]->TITRE}}</p>
+                <p class="u-align-center u-text u-text-1"> {{$films[$i+31]->TITRE}}</p>
                 <div class="u-expanded-width u-list u-list-1">
                     <div class="u-repeater u-repeater-1">
                         <div class="u-align-left u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
-                                @if($films[$i+27]->like==0)
+                                @if($films[$i+31]->like==0)
                                 <a
-                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-1 likeBouton numero{{$films[$i+27]->ID}}"><span
+                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-1 likeBouton numero{{$films[$i+31]->ID}}"><span
                                         class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px"
                                             y="0px" style="width: 1em; height: 1em;">
                                             <path
@@ -91,7 +91,7 @@ if(Auth::check()){
                                 </a>
                                 @else
                                 <a
-                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-1 likeBouton numero{{$films[$i+27]->ID}}"><span
+                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-1 likeBouton numero{{$films[$i+31]->ID}}"><span
                                         class="u-icon u-icon-1 liked"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px"
                                             y="0px" style="width: 1em; height: 1em;">
                                             <path
@@ -104,9 +104,9 @@ if(Auth::check()){
                         </div>
                         <div class="u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
-                            @if($films[$i+27]->vu==0)
+                            @if($films[$i+31]->vu==0)
                                 <a 
-                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-2 voirBouton numero{{$films[$i+27]->ID}}"><span
+                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-2 voirBouton numero{{$films[$i+31]->ID}}"><span
                                         class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 0 96 96"
                                             style="width: 1em; height: 1em;">
                                             <path
@@ -119,7 +119,7 @@ if(Auth::check()){
                                 </a>
                                 @else
                                 <a 
-                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-2 voirBouton numero{{$films[$i+27]->ID}}"><span
+                                    class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-2 voirBouton numero{{$films[$i+31]->ID}}"><span
                                         class="u-icon u-icon-2 vu"><svg class="u-svg-content" viewBox="0 0 96 96"
                                             style="width: 1em; height: 1em;">
                                             <path
@@ -136,7 +136,7 @@ if(Auth::check()){
                         <div class="u-container-style u-list-item u-repeater-item">
                             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
                             
-                            <a href="/addMediaInPlaylist/1/{{$films[$i+27]->ID}}"
+                            <a href="jalon2/public/addMediaInPlaylist/1/{{$films[$i+31]->ID}}"
                                     class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-none u-radius-50 u-text-palette-2-base u-btn-3"><span
                                         class="u-icon u-icon-3"><svg class="u-svg-content" viewBox="0 0 512 512"
                                             style="width: 1em; height: 1em;">

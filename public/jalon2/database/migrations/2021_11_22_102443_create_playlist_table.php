@@ -18,7 +18,6 @@ class CreatePlaylistTable extends Migration
             $table->string('TITRE',50)->nullable()->index();
             $table->string('VIGNETTE',150);
             $table->string('DESCRPTION',1000)->nullable();
-            $table->boolean('OPTION')->nullable();
             $table->string('PSEUDO');
             $table->timestamps();
         });
